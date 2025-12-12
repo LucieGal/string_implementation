@@ -7,6 +7,10 @@ String::String(){
     str_ = new char[6]{'H', 'e', 'l', 'l', 'o', '\0'};
 };
 
+size_t String::size(){
+    return size_-1;
+}
+
 char* String::str(){
     return str_;
 }
