@@ -37,7 +37,12 @@ bool String::empty(){
 }
 
 void String::reserve(size_t n){
+    if (n > max_size_){
+        n = max_size_;
+    };
+    
     capacity_ = n;
+
     char* temp = new char[n];
     if ( size_+1 > n ) {
         size_ = n-1;
@@ -63,21 +68,21 @@ void String::operator=(const char* s){
     };
 }
 
-void String::operator+(const String& str1, const String& str2){
-    String temp(str1.c_str());
-    temp.reserve(40);
-    int size_str1 = (int) str1.size();
-    char c = str2[0];
-    int i = 0;
-    while (c != '\0'){
-        c = str2[i];
-        if (i > (int) capacity_){
-            reserve(i+10);
-        }
-        str_[size_str1 + i] = c;
-        ++i;
-    };
+// void String::operator+(const String& str1, const String& str2){
+//     String temp(str1.c_str());
+//     temp.reserve(40);
+//     int size_str1 = (int) str1.size();
+//     char c = str2[0];
+//     int i = 0;
+//     while (c != '\0'){
+//         c = str2[i];
+//         if (i > (int) capacity_){
+//             reserve(i+10);
+//         }
+//         str_[size_str1 + i] = c;
+//         ++i;
+//     };
 
-    size_ = str1.size() + str2.size()
-    str_ = temp;
-};
+//     size_ = str1.size() + str2.size()
+//     str_ = temp;
+// };
