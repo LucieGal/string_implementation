@@ -17,7 +17,7 @@ class String {
         void resize(size_t new_size, char filler);
 
         void operator=(const char* s);
-        void operator+(const String& str1, const String& str2);
+        // void operator+(const String& str1, const String& str2);
 
     private:
         size_t capacity_ = 0;
