@@ -13,6 +13,9 @@ class String {
         size_t size();
         size_t max_size();
 
+        void operator=(const char* s);
+        void operator+(const String& str1, const String& str2);
+
     private:
         size_t capacity_ = 0;
         size_t size_ = 0;
