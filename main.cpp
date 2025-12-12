@@ -14,6 +14,6 @@ int main(){
     std::cout << str.str() << std::endl;
     std::cout << str.capacity() << std::endl;
 
-
+    std::cout << str.max_size() << std::endl;
     return 0;
 };

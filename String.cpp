@@ -16,6 +16,10 @@ size_t String::size(){
     return size_;
 }
 
+size_t String::max_size(){
+    return max_size_;
+}
+
 char* String::str(){
     return str_;
 }
