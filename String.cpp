@@ -37,14 +37,14 @@ void String::resize(size_t new_size, char filler){
 }
 */
 
-char* String::str(){
+char* String::c_str(){
     return str_;
 };
 
-String::String(const String& c){
-	capacity_ = c.capacity_;
-	size_ = c.size_;
-	str_ = c.str_ ;
+String::String(const String& c_str){
+	capacity_ = c_str.capacity_;
+	size_ = c_str.size_;
+	str_ = new char[size_+1];
 };
 
 size_t String::capacity(){
@@ -58,6 +58,8 @@ bool String::empty(){
         return false;
     };
 };
+
+	
 
 void String::reserve(size_t n){
     if (n > max_size_){

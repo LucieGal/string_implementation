@@ -4,15 +4,15 @@ class String {
     public:
         String();
         String(char* input_string);
-        String(const String& c);
+        String(const String& c_str);
         ~String();
 
-        char* str();
+        char* c_str();
         bool empty();
         size_t capacity();
         size_t size();
         size_t max_size();
-
+	//void clear();
         void reserve(size_t n);
         void resize(size_t new_size, char filler);
 
