@@ -7,15 +7,20 @@ String::String(){
     str_ = new char[6]{'H', 'e', 'l', 'l', 'o', '\0'};
 };
 
+
 String::~String(){
     delete str_;
+}
+
+size_t String::size(){
+    return size_-1;
 }
 
 char* String::str(){
     return str_;
 }
 
-int String::capacity(){
+size_t String::capacity(){
     return capacity_;
 }
 
