@@ -1,4 +1,4 @@
-using size_t = unsigned int;
+#include <cstdlib>
 
 class String {
     public:
@@ -6,10 +6,11 @@ class String {
         char* str();
 
         size_t size();
+        size_t max_size();
 
     private:
         size_t capacity_ = 0;
         size_t size_ = 0;
         char* str_;
-        static size_t const max_size_ = 100;
+        static const size_t max_size_ = 100;
 };
