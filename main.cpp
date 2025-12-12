@@ -3,6 +3,6 @@
 
 int main(){
     String str;
-    std::cout << str << std::endl;
+    std::cout << str.str() << std::endl;
     return 0;
 };
