@@ -33,8 +33,6 @@ int main(){
 
     std::cout << str.max_size() << std::endl;
 
-<<<<<<< HEAD
-=======
     char* test;
     test = new char[4]{'a','b','c','\0'};
     String custom(test);
@@ -42,6 +40,5 @@ int main(){
     std::cout << custom.size() << std::endl;
     std::cout << custom.max_size() << std::endl;
     delete test;
->>>>>>> refs/remotes/origin/main
     return 0;
 };

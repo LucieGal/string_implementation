@@ -5,11 +5,8 @@ class String {
         String();
         String(char* input_string);
         ~String();
-<<<<<<< HEAD
         String(const String& c);
-=======
 
->>>>>>> refs/remotes/origin/main
         char* str();
 
         size_t capacity();

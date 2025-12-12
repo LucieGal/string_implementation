@@ -76,11 +76,8 @@ void String::reserve(size_t n){
     };
 
     str_ = temp;
-<<<<<<< HEAD
 };
 
-=======
-}
 
 void String::operator=(const char* s){
     char c = s[0];
@@ -113,4 +110,3 @@ void String::operator=(const char* s){
 //     size_ = str1.size() + str2.size()
 //     str_ = temp;
 // };
->>>>>>> refs/remotes/origin/main
