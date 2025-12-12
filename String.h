@@ -1,4 +1,4 @@
-using size_t = unsigned int;
+#include <cstdlib>
 
 class String {
     public:

@@ -31,3 +31,17 @@ bool String::empty(){
         return false;
     }
 }
+
+void String::reserve(size_t n){
+    capacity_ = n;
+    char* temp = new char[n];
+    if ( size_+1 > n ) {
+        size_ = n-1;
+    };
+
+    for (int i = 0; i < (int) size_+1; ++i){ 
+        temp[i] = str_[i];
+    };
+
+    str_ = temp;
+}
