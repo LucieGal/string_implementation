@@ -2,9 +2,9 @@
 
 String::String(){
     capacity_ = 6;
-    size_ = 6;
+    size_ = 5;
     // char* foo = "Hello World";
-    str_ = new char[6]{'H', 'e', 'l', 'l', 'o', '\0'};
+    str_ = new char[size_+1]{'H', 'e', 'l', 'l', 'o', '\0'};
 };
 
 
@@ -13,7 +13,7 @@ String::~String(){
 }
 
 size_t String::size(){
-    return size_-1;
+    return size_;
 }
 
 char* String::str(){
