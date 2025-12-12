@@ -14,3 +14,10 @@ size_t String::size(){
 char* String::str(){
     return str_;
 }
+
+
+String::String(const String& c){
+	capacity_ = c.capacity_;
+	size_ = c.size_;
+	str_ = c.str_ ;
+};
