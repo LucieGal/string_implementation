@@ -51,6 +51,12 @@ size_t String::capacity(){
     return capacity_;
 }
 
+void String::clear(){
+	char* clear_ = new char[1]{'\0'};
+	str_ = clear_;
+}
+
+
 bool String::empty(){
     if (size_ == 0){
         return true;
@@ -80,6 +86,10 @@ void String::reserve(size_t n){
     str_ = temp;
 };
 
+void String::operator=(char c){
+	//str_.clear();
+	str_ = new char[2]{c,'\0'};
+}
 
 void String::operator=(const char* s){
     char c = s[0];
@@ -93,6 +103,22 @@ void String::operator=(const char* s){
         ++i;
     };
 }
+
+/*
+void String::operator+(const String& str, const char* s){
+	int size_ = str.size();
+	char c = s[0];
+    	int i = 0;
+   	while (c != '\0'){
+        	c = s[i];
+        	if (i > size_t str.capacity()){
+            		str.reserve(i+10);
+        	}
+        	str[i+size_] = c;
+        	++i;
+    	};
+}
+*/
 
 // void String::operator+(const String& str1, const String& str2){
 //     String temp(str1.c_str());

@@ -8,15 +8,16 @@ class String {
         ~String();
 
         char* c_str();
+        void clear();
         bool empty();
         size_t capacity();
         size_t size();
         size_t max_size();
-	//void clear();
         void reserve(size_t n);
         void resize(size_t new_size, char filler);
-
+	void operator=(const char c);
         void operator=(const char* s);
+        //void operator+(const String& str1, const char* s);
         // void operator+(const String& str1, const String& str2);
         
     private:
