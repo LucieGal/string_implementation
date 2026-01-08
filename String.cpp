@@ -1,24 +1,40 @@
 #include "String.h"
 #include <cstring>
 #include <cmath>
+#include <stdexcept>
 
 String::String(){
-    capacity_ = 6;
+    capacity_ = 10;
     size_ = 5;
-    // char* foo = "Hello World";
+    // char* foo = "Hello World"; >> Should we delete this?
     str_ = new char[size_+1]{'H', 'e', 'l', 'l', 'o', '\0'};
-};
+}
 
-String::String(char* input_string){
-    String s;
+String::String(const char* input_string){
+    if (input_string== nullptr){
+        capacity_ = 10;
+        size_ = 0;
+        str_ = new char[capacity_];
+        str_[0] = '\0';
+        return;
+    }
+
     size_ = std::strlen(input_string);
-    capacity_ = std::ceil(size_+1/10)*10; // need to add a barrier for max_size later
-    str_ = input_string;
+
+    // The default capacity is the nearest multiple of 10
+    size_t temp = std::ceil((size_+1)/10)*10;
+    if (temp > max_size_){
+        temp = max_size_;        
+    }
+    capacity_ = temp; // need to add a barrier for max_size later >> done
+
+    str_ = new char[capacity_];
+    std::strcpy(str_, input_string);
 }
 
 String::~String(){
     delete str_;
-};
+}
 
 size_t String::size(){
     return size_;
@@ -26,26 +42,45 @@ size_t String::size(){
 
 size_t String::max_size(){
     return max_size_;
-};
-
-/*
-void String::resize(size_t new_size, char filler){
-    //size_t current = size_; //probably not interesting
-    if (size_ > new_size){
-
-    }
 }
-*/
+
+
+void String::resize(size_t new_size, char filler){
+    //!\\ Don't know if the loop below is useful given it is
+    //    supposed to throw a std::length_error in this case,
+    //    but I don't know how to do this by myself :/ 
+    //    Found it :), not sure of myself though
+    if (new_size > max_size_){
+        //new_size = max_size_;
+        throw std::length_error("Length Error in resize: new_size greater than max_size_");
+    }
+        
+    if (size_ < new_size){
+        if (capacity_ <= new_size){
+            reserve(new_size+1);
+        }
+        for (size_t i = size_; i < new_size; ++i){
+            str_[i] = filler;
+        }
+        str_[new_size] = '\0';
+
+    }else if (size_ > new_size){
+        str_[new_size] = '\0';
+    }
+
+   size_ = new_size;
+}
+
 
 char* String::c_str(){
     return str_;
-};
+}
 
 String::String(const String& c_str){
 	capacity_ = c_str.capacity_;
 	size_ = c_str.size_;
 	str_ = new char[size_+1];
-};
+}
 
 size_t String::capacity(){
     return capacity_;
@@ -62,34 +97,45 @@ bool String::empty(){
         return true;
     } else {
         return false;
-    };
-};
+    }
+}
 
 	
 
 void String::reserve(size_t n){
     if (n > max_size_){
         n = max_size_;
-    };
+    }
     
     capacity_ = n;
 
     char* temp = new char[n];
     if ( size_+1 > n ) {
         size_ = n-1;
-    };
+    }
 
     for (int i = 0; i < (int) size_+1; ++i){ 
         temp[i] = str_[i];
-    };
+    }
 
     str_ = temp;
-};
+}
 
 void String::operator=(char c){
 	//str_.clear();
 	str_ = new char[2]{c,'\0'};
 }
+
+/*
+void String::operator=(const String& str){
+    if (*this != str){
+        if (str.size() > capacity_){
+
+        }
+
+    }
+}
+*/
 
 void String::operator=(const char* s){
     char c = s[0];
@@ -101,7 +147,7 @@ void String::operator=(const char* s){
         }
         str_[i] = c;
         ++i;
-    };
+    }
 }
 
 /*
@@ -116,7 +162,13 @@ void String::operator+(const String& str, const char* s){
         	}
         	str[i+size_] = c;
         	++i;
-    	};
+    	}
+}
+*/
+
+/*
+void String::operator+(String& str1, char s){
+
 }
 */
 
@@ -133,8 +185,8 @@ void String::operator+(const String& str, const char* s){
 //         }
 //         str_[size_str1 + i] = c;
 //         ++i;
-//     };
+//     }
 
 //     size_ = str1.size() + str2.size()
 //     str_ = temp;
-// };
+// }

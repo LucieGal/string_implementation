@@ -1,44 +1,53 @@
 #include "String.h"
 #include <iostream>
 
+using std::cout;
+using std::endl;
+
 int main(){
     String str;
-    std::cout << str.c_str() << std::endl;
-    std::cout << str.size() << std::endl;
+    cout << str.c_str() << endl;
+    cout << str.size() << endl;
 
     String stp = str;
-    std::cout<<stp.c_str()<<std::endl;
-    std::cout<<stp.size()<<std::endl;
+    cout<<stp.c_str()<<endl;
+    cout<<stp.size()<<endl;
 
+    cout << endl << "###### TESTING RESIZE ######" << endl;
+    String stH("1234567890");
+    cout << "Before: " << stH.c_str() << endl;
+    stH.resize(5);
+    cout << "After: " << stH.c_str() << endl;
+    cout << endl;
 
     str.reserve(15);
-    std::cout << str.c_str() << std::endl;
-    std::cout << str.capacity() << std::endl;
+    cout << str.c_str() << endl;
+    cout << str.capacity() << endl;
 
     // str.reserve(3);
-    // std::cout << str.str() << std::endl;
-    // std::cout << str.capacity() << std::endl;
+    // cout << str.str() << endl;
+    // cout << str.capacity() << endl;
 
     char* s = new char[16]{'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '!', '\0'};
     str = s;
-    std::cout << str.c_str() << std::endl;
+    cout << str.c_str() << endl;
     
 
     // A tester avec c-string constructor
     
     // String str2;
     // str = str + str2;
-    // std::cout << str.c_str() << std::endl;
+    // cout << str.c_str() << endl;
 
 /*
-    std::cout << str.max_size() << std::endl;
+    cout << str.max_size() << endl;
 
     char* test;
     test = new char[4]{'a','b','c','\0'};
     String custom(test);
-    std::cout << custom.c_str() << std::endl;
-    std::cout << custom.size() << std::endl;
-    std::cout << custom.max_size() << std::endl;
+    cout << custom.c_str() << endl;
+    cout << custom.size() << endl;
+    cout << custom.max_size() << endl;
     delete test;
     return 0;
 */

@@ -3,7 +3,7 @@
 class String {
     public:
         String();
-        String(char* input_string);
+        String(const char* input_string);
         String(const String& c_str);
         ~String();
 
@@ -14,11 +14,14 @@ class String {
         size_t size();
         size_t max_size();
         void reserve(size_t n);
-        void resize(size_t new_size, char filler);
-	void operator=(const char c);
+        void resize(size_t new_size, char filler = '\0');
+
+	    void operator=(const char c);
+        void operator=(const String& str);
         void operator=(const char* s);
         //void operator+(const String& str1, const char* s);
-        // void operator+(const String& str1, const String& str2);
+        //void operator+(const String& str1, char s)
+        //void operator+(const String& str1, const String& str2);
         
     private:
         size_t capacity_ = 0;
