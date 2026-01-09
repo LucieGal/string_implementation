@@ -26,19 +26,19 @@ int main(){
 
     // A tester avec c-string constructor
     
-    // String str2;
-    // str = str + str2;
-    // std::cout << str.str() << std::endl;
+    String str2;
+    str3 = str + str2;
+    std::cout << str3.str() << std::endl;
 
 
     std::cout << str.max_size() << std::endl;
 
-    char* test;
-    test = new char[4]{'a','b','c','\0'};
+    char* test = new char[4]{'a','b','c','\0'};
     String custom(test);
     std::cout << custom.str() << std::endl;
     std::cout << custom.size() << std::endl;
     std::cout << custom.max_size() << std::endl;
-    delete test;
+    // delete [] test;
+    // delete [] s;
     return 0;
 };

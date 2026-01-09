@@ -17,7 +17,7 @@ String::String(char* input_string){
 }
 
 String::~String(){
-    delete str_;
+    delete [] str_;
 };
 
 size_t String::size(){
@@ -75,6 +75,7 @@ void String::reserve(size_t n){
         temp[i] = str_[i];
     };
 
+    delete [] str_;
     str_ = temp;
 };
 
@@ -92,21 +93,21 @@ void String::operator=(const char* s){
     };
 }
 
-// void String::operator+(const String& str1, const String& str2){
-//     String temp(str1.c_str());
-//     temp.reserve(40);
-//     int size_str1 = (int) str1.size();
-//     char c = str2[0];
-//     int i = 0;
-//     while (c != '\0'){
-//         c = str2[i];
-//         if (i > (int) capacity_){
-//             reserve(i+10);
-//         }
-//         str_[size_str1 + i] = c;
-//         ++i;
-//     };
+String operator+(const String& str1, const String& str2){
+    String temp(str1.str());
+    temp.reserve(40);
+    int size_str1 = (int) str1.size();
+    char c = str2[0];
+    int i = 0;
+    while (c != '\0'){
+        c = str2[i];
+        if (i > (int) capacity_){
+            reserve(i+10);
+        }
+        str_[size_str1 + i] = c;
+        ++i;
+    };
 
-//     size_ = str1.size() + str2.size()
-//     str_ = temp;
-// };
+    size_ = str1.size() + str2.size()
+    return temp;
+};

@@ -17,12 +17,14 @@ class String {
         void resize(size_t new_size, char filler);
 
         void operator=(const char* s);
-        // void operator+(const String& str1, const String& str2);
         
     private:
         size_t capacity_ = 0;
         size_t size_ = 0;
-        char* str_;
+        char* str_ = new char[10]{};
 
         static const size_t max_size_ = 100;
 };
+
+
+String operator+(const String& str1, const String& str2);
