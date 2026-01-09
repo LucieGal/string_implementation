@@ -4,6 +4,8 @@
 using std::cout;
 using std::endl;
 
+int test_student_A();
+
 int main(){
     String str;
     cout << str.c_str() << endl;
@@ -51,6 +53,51 @@ int main(){
     delete test;
     return 0;
 */
+	
+	test_student_A();
+};
+
+int test_student_A(){
+	std::cout<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"Test de Student A"<<std::endl;
+	std::cout<<std::endl;
+	std::cout<<"Test de copy cobstructor et de c_str"<<std::endl;
+	String str("test");
+	String new_str(str);
+	std::cout<<"new_str est "<<new_str.c_str()<<std::endl;
+	std::cout<<std::endl;
 
 	
-};
+	std::cout<<"Test de size"<<std::endl;
+	std::cout<<"La taille de str est "<<str.size()<<std::endl;
+	std::cout<<std::endl;
+
+	 
+	std::cout<<"Test de clear"<<std::endl;
+	std::cout<<"Le str avant clear() "<<str.c_str()<<std::endl;
+	str.clear();
+	std::cout<<"Le str après clear() "<<str.c_str()<<std::endl;
+	std::cout<<std::endl;
+	/*
+	std::cout<<"Test d'opérator=(char)"<<std::endl;
+	String Str;
+	char* c = new char('m');
+	std::cout<<"Notre str est "<<Str.c_str()<<std::endl;
+	std::cout<<"on le transforme en str m"<<std::endl;
+	Str = *c;
+	std::cout<<"Notre str maintenant est "<<Str.c_str()<<std::endl;
+	std::cout<<std::endl;
+*/
+	
+	std::cout<<"Test d'opérateur+(const string&, const char*)"<<std::endl;
+	String str1("string1");
+	char* char_array = new char[12]{' ','e','t',' ','p','a','s',' ','s','t','r','\0'};
+	std::cout<<"Notre str est : "<<str1.c_str()<<std::endl;
+	std::cout<<"Notre char* est : "<<char_array<<std::endl;
+	String str2 = str1 + char_array;
+	std::cout<<"Ensemble ils forment : "<<str2.c_str()<<std::endl;
+	std::cout<<std::endl;
+
+	return 0;
+}

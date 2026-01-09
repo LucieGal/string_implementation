@@ -121,13 +121,13 @@ void String::reserve(size_t n){
 
     str_ = temp;
 }
-
+/*
 String operator=(const char c){
 	str_.clear();
 	str_ = new char[2]{c,'\0'};
 	return str_;
 }
-
+*/
 /*
 void String::operator=(const String& str){
     if (*this != str){
