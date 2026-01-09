@@ -2,6 +2,7 @@
 #include <cstring>
 #include <cmath>
 #include <stdexcept>
+#include <iostream>
 
 String::String(){
     capacity_ = 10;
@@ -36,11 +37,11 @@ String::~String(){
     delete str_;
 }
 
-size_t String::size(){
+size_t String::size() const{
     return size_;
 }
 
-size_t String::max_size(){
+size_t String::max_size() const{
     return max_size_;
 }
 
@@ -121,9 +122,10 @@ void String::reserve(size_t n){
     str_ = temp;
 }
 
-void String::operator=(char c){
-	//str_.clear();
+String operator=(const char c){
+	str_.clear();
 	str_ = new char[2]{c,'\0'};
+	return str_;
 }
 
 /*
@@ -150,21 +152,24 @@ void String::operator=(const char* s){
     }
 }
 
-/*
-void String::operator+(const String& str, const char* s){
-	int size_ = str.size();
-	char c = s[0];
-    	int i = 0;
-   	while (c != '\0'){
-        	c = s[i];
-        	if (i > size_t str.capacity()){
-            		str.reserve(i+10);
-        	}
-        	str[i+size_] = c;
-        	++i;
+ String operator+(const String& str, const char* s){
+ 	String new_str;
+	
+    	size_t new_size = str.size() + sizeof(s);
+    	if (new_size > str.max_size()){
+    		std::cout<<"Erreur"<<std::endl;
     	}
+    	else {
+    		for (size_t i=0; i < str.size(); i++){
+    			new_str.str_[i] = str.str_[i];
+    		}
+    		for (size_t i=0; i< sizeof(s) + 1; i++){
+    			new_str.str_[i + str.size()] = s[i];
+    		}
+    		
+    	}
+    	return new_str;
 }
-*/
 
 /*
 void String::operator+(String& str1, char s){

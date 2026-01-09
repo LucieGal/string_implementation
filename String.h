@@ -11,15 +11,15 @@ class String {
         void clear();
         bool empty();
         size_t capacity();
-        size_t size();
-        size_t max_size();
+        size_t size() const;
+        size_t max_size() const;
         void reserve(size_t n);
         void resize(size_t new_size, char filler = '\0');
 
-	    void operator=(const char c);
+	String operator=(char c);
         void operator=(const String& str);
         void operator=(const char* s);
-        //void operator+(const String& str1, const char* s);
+        friend String operator+(const String& str1, const char* s);
         //void operator+(const String& str1, char s)
         //void operator+(const String& str1, const String& str2);
         
