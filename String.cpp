@@ -7,7 +7,6 @@
 String::String(){
     capacity_ = 10;
     size_ = 5;
-    // char* foo = "Hello World"; >> Should we delete this?
     str_ = new char[size_+1]{'H', 'e', 'l', 'l', 'o', '\0'};
 }
 
@@ -47,12 +46,7 @@ size_t String::max_size() const{
 
 
 void String::resize(size_t new_size, char filler){
-    //!\\ Don't know if the loop below is useful given it is
-    //    supposed to throw a std::length_error in this case,
-    //    but I don't know how to do this by myself :/ 
-    //    Found it :), not sure of myself though
     if (new_size > max_size_){
-        //new_size = max_size_;
         throw std::length_error("Length Error in resize: new_size greater than max_size_");
     }
         
