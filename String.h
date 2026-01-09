@@ -19,8 +19,9 @@ class String {
 	//String operator=(char c);
         String& operator=(const String& str);
         void operator=(const char* s); //Needs to be changed to return String&, not void
+        
         friend String operator+(const String& str1, const char* s);
-        //void operator+(const String& str1, char s)
+        friend String operator+(const String& str1, char s);
         //void operator+(const String& str1, const String& str2);
         
     private:

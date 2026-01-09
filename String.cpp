@@ -154,14 +154,13 @@ void String::operator=(const char* s){
     }
 }
 
- String operator+(const String& str, const char* s){
+String operator+(const String& str, const char* s){
  	String new_str;
 	
     	size_t new_size = str.size() + sizeof(s);
     	if (new_size > str.max_size()){
-    		std::cout<<"Erreur"<<std::endl;
-    	}
-    	else {
+    		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+    	} else {
     		for (size_t i=0; i < str.size(); i++){
     			new_str.str_[i] = str.str_[i];
     		}
@@ -173,11 +172,28 @@ void String::operator=(const char* s){
     	return new_str;
 }
 
-/*
-void String::operator+(String& str1, char s){
 
+String operator+(const String& str, char s){
+    String new_str;
+
+    size_t new_size = str.size() + 1;
+    	if (new_size+1 > str.max_size()){
+    		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+    	} else {
+            for (size_t i=0; i<str.size()-1;++i){
+                new_str.str_[i] = str.str_[i];
+            }
+        }
+    new_str.str_[str.size()] = s;
+    new_str.str_[new_str.size()] = '\0';
+
+    return new_str;
 }
-*/
+
+
+
+
+// /!\ WARNING ! YOU should probably rewrite void String::operator+(args) to String operator+(args)!!!!
 
 // void String::operator+(const String& str1, const String& str2){
 //     String temp(str1.c_str());
