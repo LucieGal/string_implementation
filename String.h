@@ -17,8 +17,8 @@ class String {
         void resize(size_t new_size, char filler = '\0');
 
 	//String operator=(char c);
-        void operator=(const String& str);
-        void operator=(const char* s);
+        String& operator=(const String& str);
+        void operator=(const char* s); //Needs to be changed to return String&, not void
         friend String operator+(const String& str1, const char* s);
         //void operator+(const String& str1, char s)
         //void operator+(const String& str1, const String& str2);

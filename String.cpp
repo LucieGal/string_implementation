@@ -122,16 +122,24 @@ String operator=(const char c){
 	return str_;
 }
 */
-/*
-void String::operator=(const String& str){
-    if (*this != str){
-        if (str.size() > capacity_){
 
+
+String& String::operator=(const String& str){
+    if (this != &str){
+        if (str.size() > capacity_){
+            delete[] str_;
+            capacity_ = str.size();
+            str_ = new char[capacity_ +1];
         }
 
+        size_ = str.size();
+        for (size_t i = 0; i<size_; ++i){
+            str_[i] = str.str_[i];
+        }
+        str_[size_] = '\0';
     }
+    return *this;
 }
-*/
 
 void String::operator=(const char* s){
     char c = s[0];
