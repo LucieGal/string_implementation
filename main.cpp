@@ -53,12 +53,14 @@ int main(){
     cout << custom.size() << endl;
     cout << custom.max_size() << endl;
     delete test;
-    
+    delete s;
 
 	
 	test_student_A();
 	
-	return 0;
+	return 0;     
+	// j'ai rajouté des delete mas je pense que des copy d'elements sont mal fait parceque j'ai un message de double free 
+	// mais aucune idee à quelle ligne sans valgrind...
 };
 
 int test_student_A(){
@@ -105,5 +107,10 @@ int test_student_A(){
 	std::cout<<"Ensemble ils forment : "<<str2.c_str()<<std::endl;
 	std::cout<<std::endl;
 
+
+	delete c;
+	delete char_array;
 	return 0;
+
+
 }

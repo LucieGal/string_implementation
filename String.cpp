@@ -87,6 +87,7 @@ size_t String::capacity(){
 
 void String::clear(){
 	char* clear_ = new char[1]{'\0'};
+    delete str_;
 	str_ = clear_;
 }
 
@@ -124,6 +125,7 @@ void String::reserve(size_t n){
 
 String& String::operator=(const char c){
 	resize(1);
+    delete str_;
 	str_ = new char [2] {c, '\0'};
 	return *this;
 }
@@ -132,7 +134,7 @@ String& String::operator=(const char c){
 String& String::operator=(const String& str){
     if (this != &str){
         if (str.size() > capacity_){
-            delete[] str_;
+            delete str_;
             capacity_ = str.size();
             str_ = new char[capacity_ +1];
         }
