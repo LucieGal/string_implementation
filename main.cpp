@@ -7,6 +7,7 @@ using std::endl;
 int test_student_A();
 
 int main(){
+
     String str;
     cout << str.c_str() << endl;
     cout << str.size() << endl;
@@ -37,11 +38,11 @@ int main(){
 
     // A tester avec c-string constructor
     
-    // String str2;
-    // str = str + str2;
-    // cout << str.c_str() << endl;
+    String str2;
+    str = str + str2;
+    cout << str.c_str() << endl;
 
-/*
+
     cout << str.max_size() << endl;
 
     char* test;
@@ -51,10 +52,12 @@ int main(){
     cout << custom.size() << endl;
     cout << custom.max_size() << endl;
     delete test;
-    return 0;
-*/
+    
+
 	
 	test_student_A();
+	
+	return 0;
 };
 
 int test_student_A(){
@@ -79,16 +82,16 @@ int test_student_A(){
 	str.clear();
 	std::cout<<"Le str après clear() "<<str.c_str()<<std::endl;
 	std::cout<<std::endl;
-	/*
+	
 	std::cout<<"Test d'opérator=(char)"<<std::endl;
 	String Str;
 	char* c = new char('m');
 	std::cout<<"Notre str est "<<Str.c_str()<<std::endl;
 	std::cout<<"on le transforme en str m"<<std::endl;
-	Str = *c;
+	Str = c;
 	std::cout<<"Notre str maintenant est "<<Str.c_str()<<std::endl;
 	std::cout<<std::endl;
-*/
+
 	
 	std::cout<<"Test d'opérateur+(const string&, const char*)"<<std::endl;
 	String str1("string1");

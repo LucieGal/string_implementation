@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/String.cpp" "CMakeFiles/string.dir/String.cpp.o" "gcc" "CMakeFiles/string.dir/String.cpp.o.d"
-  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp" "CMakeFiles/string.dir/main.cpp.o" "gcc" "CMakeFiles/string.dir/main.cpp.o.d"
-  "" "string" "gcc" "CMakeFiles/string.dir/link.d"
+  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/String.cpp" "CMakeFiles/test.dir/String.cpp.o" "gcc" "CMakeFiles/test.dir/String.cpp.o.d"
+  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp" "CMakeFiles/test.dir/main.cpp.o" "gcc" "CMakeFiles/test.dir/main.cpp.o.d"
+  "" "test" "gcc" "CMakeFiles/test.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

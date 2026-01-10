@@ -32,6 +32,14 @@ String::String(const char* input_string){
     std::strcpy(str_, input_string);
 }
 
+String::String(const String& c_str){
+	capacity_ = c_str.capacity_;
+	size_ = c_str.size_;
+	str_ = new char[size_+1];
+    str_ = c_str.str_;
+    
+}
+
 String::~String(){
     delete str_;
 }
@@ -71,11 +79,7 @@ char* String::c_str(){
     return str_;
 }
 
-String::String(const String& c_str){
-	capacity_ = c_str.capacity_;
-	size_ = c_str.size_;
-	str_ = new char[size_+1];
-}
+
 
 size_t String::capacity(){
     return capacity_;
@@ -141,10 +145,13 @@ String& String::operator=(const String& str){
     return *this;
 }
 
-void String::operator=(const char* s){
+String& String::operator=(const char* s){
     char c = s[0];
     int i = 0;
     while (c != '\0'){
+        if (i == (int) max_size_) {
+            throw std::length_error("Length Error: string's size greater than max_size_");
+        }
         c = s[i];
         if (i > (int) capacity_){
             reserve(i+10);
@@ -152,20 +159,19 @@ void String::operator=(const char* s){
         str_[i] = c;
         ++i;
     }
+    size_ = i;
+    return *this;
 }
 
 String operator+(const String& str, const char* s){
- 	String new_str;
+ 	String new_str(str);
 	
     	size_t new_size = str.size() + sizeof(s);
     	if (new_size > str.max_size()){
     		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
     	} else {
-    		for (size_t i=0; i < str.size(); i++){
-    			new_str.str_[i] = str.str_[i];
-    		}
-    		for (size_t i=0; i< sizeof(s) + 1; i++){
-    			new_str.str_[i + str.size()] = s[i];
+    		for (int i=0; i< (int) sizeof(s) + 1; i++){
+    			new_str.c_str() [i + str.size()] = s[i];
     		}
     		
     	}
@@ -173,43 +179,45 @@ String operator+(const String& str, const char* s){
 }
 
 
-String operator+(const String& str, char s){
-    String new_str;
+// String operator+(const String& str, char s){
+//     String new_str;
 
-    size_t new_size = str.size() + 1;
-    	if (new_size+1 > str.max_size()){
-    		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
-    	} else {
-            for (size_t i=0; i<str.size()-1;++i){
-                new_str.str_[i] = str.str_[i];
+//     size_t new_size = str.size() + 1;
+//     	if (new_size+1 > str.max_size()){
+//     		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+//     	} else {
+//             for (int i=0; i < (int) str.size()-1; ++i){
+//                 new_str.str_[i] = str.str_[i];
+//             }
+//         }
+//     new_str.str_[str.size()] = s;
+//     new_str.str_[new_str.size()] = '\0';
+
+//     return new_str;
+// }
+
+
+String operator+(const String& str1, const String& str2){
+    String new_str(str1);
+    String next_string(str2);
+
+    new_str.resize(str1.size() + str2.size(), ' ');
+
+    int size_str1 = (int) str1.size();
+    char c = next_string.c_str()[0];
+    int i = 0;
+    if (str1.size() + str2.size() > new_str.max_size()){
+        throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+    } else {
+        while (c != '\0'){
+            c = next_string.c_str()[i];
+            if (i > (int) new_str.capacity()){
+                new_str.reserve(i+10);
             }
+            new_str.c_str()[size_str1 + i] = c;
+            ++i;
         }
-    new_str.str_[str.size()] = s;
-    new_str.str_[new_str.size()] = '\0';
+    }
 
     return new_str;
 }
-
-
-
-
-// /!\ WARNING ! YOU should probably rewrite void String::operator+(args) to String operator+(args)!!!!
-
-// void String::operator+(const String& str1, const String& str2){
-//     String temp(str1.c_str());
-//     temp.reserve(40);
-//     int size_str1 = (int) str1.size();
-//     char c = str2[0];
-//     int i = 0;
-//     while (c != '\0'){
-//         c = str2[i];
-//         if (i > (int) capacity_){
-//             reserve(i+10);
-//         }
-//         str_[size_str1 + i] = c;
-//         ++i;
-//     }
-
-//     size_ = str1.size() + str2.size()
-//     str_ = temp;
-// }

@@ -18,12 +18,9 @@ class String {
 
 	//String operator=(char c);
         String& operator=(const String& str);
-        void operator=(const char* s); //Needs to be changed to return String&, not void
+        String& operator=(const char* s); 
         
-        friend String operator+(const String& str1, const char* s);
-        friend String operator+(const String& str1, char s);
-        //void operator+(const String& str1, const String& str2);
-        
+         
     private:
         size_t capacity_ = 0;
         size_t size_ = 0;
@@ -31,3 +28,8 @@ class String {
 
         static const size_t max_size_ = 100;
 };
+
+
+String operator+(const String& str1, const char* s);
+String operator+(const String& str1, char s);
+String operator+(const String& str1, const String& str2);
