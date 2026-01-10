@@ -16,7 +16,7 @@ class String {
         void reserve(size_t n);
         void resize(size_t new_size, char filler = '\0');
 
-	//String operator=(char c);
+	    String& operator=(char c);
         String& operator=(const String& str);
         String& operator=(const char* s); 
         

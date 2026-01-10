@@ -12,7 +12,7 @@ int main(){
     cout << str.c_str() << endl;
     cout << str.size() << endl;
 
-    String stp = str;
+    String stp(str);
     cout<<stp.c_str()<<endl;
     cout<<stp.size()<<endl;
 
@@ -21,29 +21,30 @@ int main(){
     cout << "Before: " << stH.c_str() << endl;
     stH.resize(5);
     cout << "After: " << stH.c_str() << endl;
+	stH.resize(10, '.');
+	cout << "And then: " << stH.c_str() << endl;
     cout << endl;
+
 
     str.reserve(15);
     cout << str.c_str() << endl;
     cout << str.capacity() << endl;
 
-    // str.reserve(3);
-    // cout << str.str() << endl;
-    // cout << str.capacity() << endl;
+    str.reserve(3);
+    cout << str.c_str() << endl;
+    cout << str.capacity() << endl;
 
     char* s = new char[16]{'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '!', '\0'};
     str = s;
     cout << str.c_str() << endl;
     
-
-    // A tester avec c-string constructor
-    
     String str2;
-    str = str + str2;
-    cout << str.c_str() << endl;
-
-
-    cout << str.max_size() << endl;
+	cout << str2.c_str() << endl;
+    String str3;
+	cout << str3.c_str() << endl;
+	str3 = str + str2;
+	cout << "Test + operator between 2 strings" << endl;   // not working
+    cout << str3.c_str() << endl;
 
     char* test;
     test = new char[4]{'a','b','c','\0'};
@@ -90,7 +91,9 @@ int test_student_A(){
 	std::cout<<"on le transforme en str m"<<std::endl;
 	Str = c;
 	std::cout<<"Notre str maintenant est "<<Str.c_str()<<std::endl;
+	std::cout<<"Avec une size de "<<Str.size()<<std::endl;
 	std::cout<<std::endl;
+
 
 	
 	std::cout<<"Test d'opérateur+(const string&, const char*)"<<std::endl;

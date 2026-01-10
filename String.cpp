@@ -117,15 +117,16 @@ void String::reserve(size_t n){
         temp[i] = str_[i];
     }
 
+    delete str_;
     str_ = temp;
 }
-/*
-String operator=(const char c){
-	str_.clear();
-	str_ = new char[2]{c,'\0'};
-	return str_;
+
+
+String& String::operator=(const char c){
+	resize(1);
+	str_ = new char [2] {c, '\0'};
+	return *this;
 }
-*/
 
 
 String& String::operator=(const String& str){
@@ -145,13 +146,19 @@ String& String::operator=(const String& str){
     return *this;
 }
 
-String& String::operator=(const char* s){
+String& String::operator=(const char* s){ 
+    
+    int size = 0;
+    while (s[size] != '\0') size++;
+
     char c = s[0];
     int i = 0;
+
+    if (size == (int) max_size_) {
+        throw std::length_error("Length Error: string's size greater than max_size_");
+    }
+    resize(size+1, '.');
     while (c != '\0'){
-        if (i == (int) max_size_) {
-            throw std::length_error("Length Error: string's size greater than max_size_");
-        }
         c = s[i];
         if (i > (int) capacity_){
             reserve(i+10);
@@ -165,17 +172,28 @@ String& String::operator=(const char* s){
 
 String operator+(const String& str, const char* s){
  	String new_str(str);
-	
-    	size_t new_size = str.size() + sizeof(s);
-    	if (new_size > str.max_size()){
-    		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
-    	} else {
-    		for (int i=0; i< (int) sizeof(s) + 1; i++){
-    			new_str.c_str() [i + str.size()] = s[i];
-    		}
-    		
-    	}
-    	return new_str;
+
+    std::cout << new_str.size() << std::endl;
+	int size = 2;                               // to take into account the '\0'
+    while (s[size] != '\0') size++;
+
+    size_t new_size = str.size() + size;
+    
+    std::cout << new_str.c_str() << std::endl;
+    std::cout << s << std::endl;
+    std::cout << new_size << std::endl;
+	if (new_size > str.max_size()){
+		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+	} else {
+        if (new_size > new_str.capacity()){
+            new_str.reserve( 10 + new_size );
+        }
+		for (int i=0; i< size + 1; i++){
+			new_str.c_str() [i + str.size()] = s[i];
+		}
+		
+	}
+	return new_str;
 }
 
 
@@ -200,24 +218,26 @@ String operator+(const String& str, const char* s){
 String operator+(const String& str1, const String& str2){
     String new_str(str1);
     String next_string(str2);
+    size_t size = str1.size() + str2.size();
 
-    new_str.resize(str1.size() + str2.size(), ' ');
+    new_str.reserve(10 + size);        
+
+    
 
     int size_str1 = (int) str1.size();
     char c = next_string.c_str()[0];
     int i = 0;
-    if (str1.size() + str2.size() > new_str.max_size()){
+    if (size > new_str.max_size()){
         throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
     } else {
         while (c != '\0'){
             c = next_string.c_str()[i];
-            if (i > (int) new_str.capacity()){
-                new_str.reserve(i+10);
-            }
+            // std::cout << c << std::endl;
             new_str.c_str()[size_str1 + i] = c;
+            // std::cout << new_str.c_str() << std::endl;
             ++i;
         }
     }
-
+    // std::cout << new_str.c_str()[19] << std::endl;
     return new_str;
 }
