@@ -212,7 +212,7 @@ int test_student_B(){
 	test_operatorBeq();
 	cout << "Test of the = operator (string&) function: passed!" << endl;
 	test_operatorBpl();
-	cout << "Test of the + operator (srting& + string&): passed!" << endl;
+	cout << "Test of the + operator (string& + string&): passed!" << endl;
 	
 	return 0;
 }
