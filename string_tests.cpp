@@ -229,7 +229,7 @@ int test_student_C(){
 	cout << endl;
 	cout << "Test student C" << endl;
 	cout << endl;
-	
+
 	String str;
 	cout << "The string capacity is : ";
 	cout << str.capacity() << endl;
@@ -257,7 +257,7 @@ int test_student_C(){
 	cout << str.c_str() << " + " << str2.c_str() << " = ";
 	String str3;
 	str3 = str + str2;
-	cout << str3.c_str() << endl;
+	cout << str3.c_str() << endl;      // not working
 
 	return 0;
 }
