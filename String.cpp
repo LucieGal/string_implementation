@@ -227,9 +227,7 @@ String operator+(const String& str, char s){
         new_str.reserve(new_size);
     }
 
-    new_str.c_str()[str.size()] = s;
-    new_str.c_str()[new_str.size()] = '\0';
-    new_str.resize(new_size);
+    new_str.resize(new_size, s);
 
     return new_str;
 }

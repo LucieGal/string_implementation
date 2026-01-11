@@ -180,7 +180,23 @@ void test_operatorBeq(){
 }
 
 void test_operatorBpl(){
+	String s1("Hello");
+    String result = s1 + '!';
+    
+	assert(result.size() == 6);
+    assert(strcmp(result.c_str(), "Hello!") == 0);
 
+	assert(s1.size() == 5);
+    assert(strcmp(s1.c_str(), "Hello") == 0);
+
+	String s2("");
+    String result2 = s2 + 'A';
+    assert(result2.size() == 1);
+    assert(strcmp(result2.c_str(), "A") == 0);
+
+	String s3("Hi");
+    String result3 = s3 + '!' + '?';
+    assert(strcmp(result3.c_str(), "Hi!?") == 0);
 }
 
 int test_student_B(){
