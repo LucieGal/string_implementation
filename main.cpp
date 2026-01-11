@@ -16,11 +16,11 @@ int main(){
     cout << custom.size() << endl;
     cout << custom.max_size() << endl;
     delete test;
-    delete s;
 
-	
-	test_student_A();
+	cout << "Test student C " << endl;
 	test_student_C();
+	test_student_A();
+	
 	
 	return 0;     
 	// j'ai rajouté des delete mas je pense que des copy d'elements sont mal fait parceque j'ai un message de double free 
@@ -88,29 +88,35 @@ int test_student_C(){
         operator+(const string&, const string&)
 
 	*/
+	cout << "Test student C" << endl;
 	String str;
 	cout << "The string capacity is : ";
 	cout << str.capacity() << endl;
+	cout << endl;
 
 	cout << "Is the string empty? " << str.empty() << endl;
 	str.clear();
 	cout << "And after a clear? " << str.empty() << endl;	
+	cout << endl;
 
 	cout << "Lets reserve a bit of space." << endl;
 	str.reserve(15);
     cout << "Capacity is now " << str.capacity() << endl;
+	cout << endl;
 
 	cout << "Test of the = operator (with char*)" << endl;
 	char* s = new char[16]{'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '!', '\0'};
     str = s;
     cout << str.c_str() << endl;
+	cout << endl;
 
-	String str2;
-	String str3(str + str2);
-	cout << str.c_str() << " + " << str2.c_str() << " = " << str3.c_str() << endl;
+	char* test = new char[4]{'a','b','c','\0'};
+	String str2 (test);
 
-	delete str;
-	delete str2;
-	delete str3;
+	cout << str.c_str() << " + " << str2.c_str() << " = ";
+	String str3;
+	str3 = str + str2;
+	cout << str3.c_str() << endl;
+
 	return 0;
 }
