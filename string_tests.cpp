@@ -155,7 +155,28 @@ void test_resize(){
 }
 
 void test_operatorBeq(){
+	String s1("Hello");
+    String s2("World");
+    
+    s2 = s1;
+    assert(s2.size() == 5);
+    assert(strcmp(s2.c_str(), "Hello") == 0);
 
+	s1 = s1;
+    assert(s1.size() == 5);
+    assert(strcmp(s1.c_str(), "Hello") == 0);
+
+	String s3("Test");
+    String s4("A");
+    s4 = s3;
+    assert(s4.size() == 4);
+    assert(strcmp(s4.c_str(), "Test") == 0);
+
+	String s5, s6, s7;
+    s5 = s6 = s7 = String("Chain");
+    assert(strcmp(s5.c_str(), "Chain") == 0);
+    assert(strcmp(s6.c_str(), "Chain") == 0);
+    assert(strcmp(s7.c_str(), "Chain") == 0);
 }
 
 void test_operatorBpl(){

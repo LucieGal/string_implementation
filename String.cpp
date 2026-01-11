@@ -15,7 +15,7 @@ String::String(const char* input_string){
     if (input_string== nullptr){
         capacity_ = 10;
         size_ = 0;
-        str_ = new char[capacity_];
+        str_ = new char[capacity_+1];
         str_[0] = '\0';
         return;
     }
@@ -32,7 +32,7 @@ String::String(const char* input_string){
     }
     capacity_ = temp;
 
-    str_ = new char[capacity_];
+    str_ = new char[capacity_+1];
     std::strcpy(str_, input_string);
     }
 }
@@ -98,10 +98,11 @@ size_t String::capacity(){
 }
 
 void String::clear(){
-	char* clear_ = new char[1]{'\0'};
     delete[] str_;
-	str_ = clear_;
+    capacity_ = 10;
     size_ = 0;
+    str_ = new char[capacity_ + 1];
+    str_[0] = '\0';
 }
 
 
@@ -213,22 +214,25 @@ String operator+(const String& str, const char* s){
 }
 
 
-// String operator+(const String& str, char s){
-//     String new_str;
+String operator+(const String& str, char s){
+    size_t new_size = str.size() + 1;
 
-//     size_t new_size = str.size() + 1;
-//     	if (new_size+1 > str.max_size()){
-//     		throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
-//     	} else {
-//             for (int i=0; i < (int) str.size()-1; ++i){
-//                 new_str.str_[i] = str.str_[i];
-//             }
-//         }
-//     new_str.str_[str.size()] = s;
-//     new_str.str_[new_str.size()] = '\0';
+    if (new_size > str.max_size()){
+    	throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
+    }
+    
+    String new_str(str);
 
-//     return new_str;
-// }
+    if (new_size > new_str.capacity()){
+        new_str.reserve(new_size);
+    }
+
+    new_str.c_str()[str.size()] = s;
+    new_str.c_str()[new_str.size()] = '\0';
+    new_str.resize(new_size);
+
+    return new_str;
+}
 
 
 String operator+(const String& str1, const String& str2){
