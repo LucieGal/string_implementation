@@ -189,7 +189,10 @@ int test_student_C(){
         operator+(const string&, const string&)
 
 	*/
+	cout << endl;
 	cout << "Test student C" << endl;
+	cout << endl;
+	
 	String str;
 	cout << "The string capacity is : ";
 	cout << str.capacity() << endl;
