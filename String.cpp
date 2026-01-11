@@ -49,7 +49,7 @@ String::String(const String& c_str){
 }
 
 String::~String(){
-    delete str_;
+    delete[] str_;
 }
 
 size_t String::size() const{
@@ -99,7 +99,7 @@ size_t String::capacity(){
 
 void String::clear(){
 	char* clear_ = new char[1]{'\0'};
-    delete str_;
+    delete[] str_;
 	str_ = clear_;
     size_ = 0;
 }
@@ -131,14 +131,15 @@ void String::reserve(size_t n){
         temp[i] = str_[i];
     }
 
-    delete str_;
+    delete[] str_;
     str_ = temp;
 }
 
 
 String& String::operator=(const char c){
-	resize(1);
-    delete str_;
+	delete[] str_;
+    capacity_ = 10;
+    size_ = 1;
 	str_ = new char [2] {c, '\0'};
 	return *this;
 }
@@ -147,7 +148,7 @@ String& String::operator=(const char c){
 String& String::operator=(const String& str){
     if (this != &str){
         if (str.size() > capacity_){
-            delete str_;
+            delete[] str_;
             capacity_ = str.size();
             str_ = new char[capacity_ +1];
         }
@@ -162,7 +163,7 @@ String& String::operator=(const String& str){
 }
 
 String& String::operator=(const char* s){ 
-    
+
     int size = 0;
     while (s[size] != '\0') size++;
 
