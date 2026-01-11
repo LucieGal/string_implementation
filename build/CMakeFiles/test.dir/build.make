@@ -72,19 +72,19 @@ include CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/codegen:
 .PHONY : CMakeFiles/test.dir/codegen
 
-CMakeFiles/test.dir/main.cpp.o: CMakeFiles/test.dir/flags.make
-CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp
-CMakeFiles/test.dir/main.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/main.cpp.o -MF CMakeFiles/test.dir/main.cpp.o.d -o CMakeFiles/test.dir/main.cpp.o -c /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp
+CMakeFiles/test.dir/string_tests.cpp.o: CMakeFiles/test.dir/flags.make
+CMakeFiles/test.dir/string_tests.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp
+CMakeFiles/test.dir/string_tests.cpp.o: CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test.dir/string_tests.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/test.dir/string_tests.cpp.o -MF CMakeFiles/test.dir/string_tests.cpp.o.d -o CMakeFiles/test.dir/string_tests.cpp.o -c /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp
 
-CMakeFiles/test.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp > CMakeFiles/test.dir/main.cpp.i
+CMakeFiles/test.dir/string_tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/test.dir/string_tests.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp > CMakeFiles/test.dir/string_tests.cpp.i
 
-CMakeFiles/test.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp -o CMakeFiles/test.dir/main.cpp.s
+CMakeFiles/test.dir/string_tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/test.dir/string_tests.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp -o CMakeFiles/test.dir/string_tests.cpp.s
 
 CMakeFiles/test.dir/String.cpp.o: CMakeFiles/test.dir/flags.make
 CMakeFiles/test.dir/String.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/String.cpp
@@ -102,13 +102,13 @@ CMakeFiles/test.dir/String.cpp.s: cmake_force
 
 # Object files for target test
 test_OBJECTS = \
-"CMakeFiles/test.dir/main.cpp.o" \
+"CMakeFiles/test.dir/string_tests.cpp.o" \
 "CMakeFiles/test.dir/String.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
-test: CMakeFiles/test.dir/main.cpp.o
+test: CMakeFiles/test.dir/string_tests.cpp.o
 test: CMakeFiles/test.dir/String.cpp.o
 test: CMakeFiles/test.dir/build.make
 test: CMakeFiles/test.dir/compiler_depend.ts

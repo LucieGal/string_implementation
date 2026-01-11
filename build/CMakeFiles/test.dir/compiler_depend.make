@@ -233,7 +233,7 @@ CMakeFiles/test.dir/String.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stddef.h
 
-CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp \
+CMakeFiles/test.dir/string_tests.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp \
   /home/lucie/Documents/Insa/4BIM/projet_groupe_info5/String.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/bitsperlong.h \
@@ -247,6 +247,7 @@ CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_in
   /usr/include/asm/posix_types.h \
   /usr/include/asm/posix_types_64.h \
   /usr/include/asm/types.h \
+  /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
   /usr/include/bits/cpu-set.h \
@@ -364,6 +365,7 @@ CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_in
   /usr/include/c++/15.2.1/bits/uses_allocator_args.h \
   /usr/include/c++/15.2.1/bits/utility.h \
   /usr/include/c++/15.2.1/bits/version.h \
+  /usr/include/c++/15.2.1/cassert \
   /usr/include/c++/15.2.1/cctype \
   /usr/include/c++/15.2.1/cerrno \
   /usr/include/c++/15.2.1/clocale \
@@ -371,6 +373,7 @@ CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_in
   /usr/include/c++/15.2.1/cstddef \
   /usr/include/c++/15.2.1/cstdio \
   /usr/include/c++/15.2.1/cstdlib \
+  /usr/include/c++/15.2.1/cstring \
   /usr/include/c++/15.2.1/cwchar \
   /usr/include/c++/15.2.1/cwctype \
   /usr/include/c++/15.2.1/debug/assertions.h \
@@ -426,6 +429,8 @@ CMakeFiles/test.dir/main.cpp.o: /home/lucie/Documents/Insa/4BIM/projet_groupe_in
   /usr/include/stdc-predef.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/sys/cdefs.h \
   /usr/include/sys/select.h \
   /usr/include/sys/single_threaded.h \
@@ -453,10 +458,8 @@ test: /usr/lib/Scrt1.o \
   /usr/lib/libm.so.6 \
   /usr/lib/libmvec.so.1 \
   CMakeFiles/test.dir/String.cpp.o \
-  CMakeFiles/test.dir/main.cpp.o
+  CMakeFiles/test.dir/string_tests.cpp.o
 
-
-CMakeFiles/test.dir/main.cpp.o:
 
 /usr/lib/libc.so.6:
 
@@ -477,6 +480,10 @@ CMakeFiles/test.dir/main.cpp.o:
 /usr/lib/libc.so:
 
 /usr/lib/crtn.o:
+
+/usr/include/c++/15.2.1/cassert:
+
+/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdarg.h:
 
@@ -758,8 +765,6 @@ CMakeFiles/test.dir/String.cpp.o:
 
 /usr/include/bits/uintn-identity.h:
 
-/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp:
-
 /usr/include/bits/atomic_wide_counter.h:
 
 /usr/include/c++/15.2.1/tuple:
@@ -890,6 +895,8 @@ CMakeFiles/test.dir/String.cpp.o:
 
 /usr/include/c++/15.2.1/bits/cxxabi_init_exception.h:
 
+CMakeFiles/test.dir/string_tests.cpp.o:
+
 /usr/include/bits/wordsize.h:
 
 /usr/include/c++/15.2.1/bits/exception.h:
@@ -907,6 +914,8 @@ CMakeFiles/test.dir/String.cpp.o:
 /usr/include/c++/15.2.1/bits/invoke.h:
 
 /usr/lib/ld-linux-x86-64.so.2:
+
+/usr/include/assert.h:
 
 /usr/include/c++/15.2.1/cstdio:
 

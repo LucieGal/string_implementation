@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/String.cpp" "CMakeFiles/test.dir/String.cpp.o" "gcc" "CMakeFiles/test.dir/String.cpp.o.d"
-  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/main.cpp" "CMakeFiles/test.dir/main.cpp.o" "gcc" "CMakeFiles/test.dir/main.cpp.o.d"
+  "/home/lucie/Documents/Insa/4BIM/projet_groupe_info5/string_tests.cpp" "CMakeFiles/test.dir/string_tests.cpp.o" "gcc" "CMakeFiles/test.dir/string_tests.cpp.o.d"
   "" "test" "gcc" "CMakeFiles/test.dir/link.d"
   )
 

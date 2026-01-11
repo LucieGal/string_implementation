@@ -160,29 +160,29 @@ String.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/String.cpp.s
 .PHONY : String.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+string_tests.o: string_tests.cpp.o
+.PHONY : string_tests.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.o
-.PHONY : main.cpp.o
+string_tests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/string_tests.cpp.o
+.PHONY : string_tests.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+string_tests.i: string_tests.cpp.i
+.PHONY : string_tests.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.i
-.PHONY : main.cpp.i
+string_tests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/string_tests.cpp.i
+.PHONY : string_tests.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+string_tests.s: string_tests.cpp.s
+.PHONY : string_tests.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/main.cpp.s
-.PHONY : main.cpp.s
+string_tests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/string_tests.cpp.s
+.PHONY : string_tests.cpp.s
 
 # Help Target
 help:
@@ -197,9 +197,9 @@ help:
 	@echo "... String.o"
 	@echo "... String.i"
 	@echo "... String.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... string_tests.o"
+	@echo "... string_tests.i"
+	@echo "... string_tests.s"
 .PHONY : help
 
 

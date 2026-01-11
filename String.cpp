@@ -235,25 +235,21 @@ String operator+(const String& str1, const String& str2){
     String new_str(str1);
     String next_string(str2);
     size_t size = str1.size() + str2.size();
-
-    new_str.reserve(10 + size);        
-
     
+    new_str.reserve(10 + size);   
+    new_str.resize(size);     
 
     int size_str1 = (int) str1.size();
     char c = next_string.c_str()[0];
     int i = 0;
     if (size > new_str.max_size()){
         throw std::length_error("Length Error: resulting string's size would be greater than max_size_");
-    } else {
+    } else { 
         while (c != '\0'){
             c = next_string.c_str()[i];
-            // std::cout << c << std::endl;
             new_str.c_str()[size_str1 + i] = c;
-            // std::cout << new_str.c_str() << std::endl;
             ++i;
         }
     }
-    // std::cout << new_str.c_str()[19] << std::endl;
     return new_str;
 }
