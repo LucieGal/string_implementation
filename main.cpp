@@ -5,46 +5,9 @@ using std::cout;
 using std::endl;
 
 int test_student_A();
+int test_student_C();
 
 int main(){
-
-    String str;
-    cout << str.c_str() << endl;
-    cout << str.size() << endl;
-
-    String stp(str);
-    cout<<stp.c_str()<<endl;
-    cout<<stp.size()<<endl;
-
-    cout << endl << "###### TESTING RESIZE ######" << endl;
-    String stH("1234567890");
-    cout << "Before: " << stH.c_str() << endl;
-    stH.resize(5);
-    cout << "After: " << stH.c_str() << endl;
-	stH.resize(10, '.');
-	cout << "And then: " << stH.c_str() << endl;
-    cout << endl;
-
-
-    str.reserve(15);
-    cout << str.c_str() << endl;
-    cout << str.capacity() << endl;
-
-    str.reserve(3);
-    cout << str.c_str() << endl;
-    cout << str.capacity() << endl;
-
-    char* s = new char[16]{'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '!', '\0'};
-    str = s;
-    cout << str.c_str() << endl;
-    
-    String str2;
-	cout << str2.c_str() << endl;
-    String str3;
-	cout << str3.c_str() << endl;
-	str3 = str + str2;
-	cout << "Test + operator between 2 strings" << endl;   // not working
-    cout << str3.c_str() << endl;
 
     char* test;
     test = new char[4]{'a','b','c','\0'};
@@ -57,6 +20,7 @@ int main(){
 
 	
 	test_student_A();
+	test_student_C();
 	
 	return 0;     
 	// j'ai rajouté des delete mas je pense que des copy d'elements sont mal fait parceque j'ai un message de double free 
@@ -112,5 +76,41 @@ int test_student_A(){
 	delete char_array;
 	return 0;
 
+}
 
+
+int test_student_C(){
+	/*
+	    capacity()
+        empty()
+        reserve(size_t)
+        operator=(const char*)
+        operator+(const string&, const string&)
+
+	*/
+	String str;
+	cout << "The string capacity is : ";
+	cout << str.capacity() << endl;
+
+	cout << "Is the string empty? " << str.empty() << endl;
+	str.clear();
+	cout << "And after a clear? " << str.empty() << endl;	
+
+	cout << "Lets reserve a bit of space." << endl;
+	str.reserve(15);
+    cout << "Capacity is now " << str.capacity() << endl;
+
+	cout << "Test of the = operator (with char*)" << endl;
+	char* s = new char[16]{'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'a', ' ', 't', 'e', 's', 't', '!', '\0'};
+    str = s;
+    cout << str.c_str() << endl;
+
+	String str2;
+	String str3(str + str2);
+	cout << str.c_str() << " + " << str2.c_str() << " = " << str3.c_str() << endl;
+
+	delete str;
+	delete str2;
+	delete str3;
+	return 0;
 }

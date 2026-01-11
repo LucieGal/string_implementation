@@ -89,6 +89,7 @@ void String::clear(){
 	char* clear_ = new char[1]{'\0'};
     delete str_;
 	str_ = clear_;
+    size_ = 0;
 }
 
 
