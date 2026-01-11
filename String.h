@@ -12,6 +12,7 @@ class String {
         bool empty();
         size_t capacity();
         size_t size() const;
+        size_t length() const;
         size_t max_size() const;
         void reserve(size_t n);
         void resize(size_t new_size, char filler = '\0');

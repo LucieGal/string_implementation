@@ -6,8 +6,9 @@
 
 String::String(){
     capacity_ = 10;
-    size_ = 5;
-    str_ = new char[size_+1]{'H', 'e', 'l', 'l', 'o', '\0'};
+    size_ = 0;
+    str_ = new char[capacity_+1];
+    str_[0] = '\0';
 }
 
 String::String(const char* input_string){
@@ -18,26 +19,33 @@ String::String(const char* input_string){
         str_[0] = '\0';
         return;
     }
-
+    else if(std::strlen(input_string) > max_size_){
+        throw std::length_error("Length Error: input string's size greater than max_size_");
+    }
+    else{
     size_ = std::strlen(input_string);
 
     // The default capacity is the nearest multiple of 10
-    size_t temp = std::ceil((size_+1)/10)*10;
+    size_t temp = std::ceil((size_+1)/10.0)*10;
     if (temp > max_size_){
         temp = max_size_;        
     }
-    capacity_ = temp; // need to add a barrier for max_size later >> done
+    capacity_ = temp;
 
     str_ = new char[capacity_];
     std::strcpy(str_, input_string);
+    }
 }
 
 String::String(const String& c_str){
 	capacity_ = c_str.capacity_;
 	size_ = c_str.size_;
-	str_ = new char[size_+1];
-    str_ = c_str.str_;
+	str_ = new char[capacity_+1];
     
+    for (size_t i = 0; i<size_;++i){
+        str_[i] = c_str.str_[i];
+    }
+    str_[size_] = '\0';
 }
 
 String::~String(){
@@ -45,6 +53,10 @@ String::~String(){
 }
 
 size_t String::size() const{
+    return size_;
+}
+
+size_t String::length() const{
     return size_;
 }
 
